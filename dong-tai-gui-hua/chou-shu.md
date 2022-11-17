@@ -26,4 +26,4 @@ m除以n就能得到范围内有多少个n的倍数：每n个数里一个n的倍
 
 二分：第n个丑数一定是第一个能包含n个丑数的数，找到第一个就行。
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (1).png>)
