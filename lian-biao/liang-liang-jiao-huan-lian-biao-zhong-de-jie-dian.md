@@ -1,6 +1,6 @@
 # 两两交换链表中的节点
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
 最开用的非递归，写着写着发现不对劲，链表head变了而原来的head还指着原来的节点。另外每次循环交换的时候交换到后面的节点需要指向next->next节点而不是next,写起来感觉代码安全上需要考虑的有点多，于是想到了用递归来做。
 
