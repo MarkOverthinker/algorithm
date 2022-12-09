@@ -2,6 +2,7 @@
 
 * [readme](README.md)
 * [跳表的实现](tiao-biao-de-shi-xian.md)
+* [C++随机数生成](c++-sui-ji-shu-sheng-cheng.md)
 
 ## 动态规划
 
