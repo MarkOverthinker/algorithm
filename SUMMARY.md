@@ -22,3 +22,13 @@
 ## 树
 
 * [几种遍历N叉树迭代写法](shu/ji-zhong-bian-lincha-shu-die-dai-xie-fa.md)
+
+## 经典排序算法
+
+* [总览](jing-dian-pai-xu-suan-fa/zong-lan.md)
+* [堆排序](jing-dian-pai-xu-suan-fa/dui-pai-xu.md)
+* [快速排序](jing-dian-pai-xu-suan-fa/kuai-su-pai-xu.md)
+* [希尔排序（缩小增量排序）](jing-dian-pai-xu-suan-fa/xi-er-pai-xu-suo-xiao-zeng-liang-pai-xu.md)
+* [计数排序](jing-dian-pai-xu-suan-fa/ji-shu-pai-xu.md)
+* [桶排序](jing-dian-pai-xu-suan-fa/tong-pai-xu.md)
+* [基数排序](jing-dian-pai-xu-suan-fa/ji-shu-pai-xu-1.md)
