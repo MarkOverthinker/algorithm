@@ -115,3 +115,69 @@ public:
 };
 ```
 ````
+
+### 2.4.3 回溯
+
+> 题12. 给定一个 `m x n` 二维字符网格 `board` 和一个字符串单词 `word` 。如果 `word` 存在于网格中，返回 `true` ；否则，返回 `false` 。
+>
+> 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
+
+![](../.gitbook/assets/image.png)
+
+
+
+使用回溯进行查询是否存在
+
+注意不能重复使用字母，所以要用visited数组保存哪些元素被使用过。
+
+````
+```cpp
+class Solution {
+public:
+
+    // visited传引用，每次修改后，在最后在将其复原。这样可以省去值传递的空间占用。
+    bool haspath(vector<vector<char>>& board, string &word, int i, int j, vector<vector<bool>> &visited, int k) {
+        // 被访问过则return false。也可以在下面选择不访问被访问的元素
+        //if (visited[i][j]) {
+        //    return false;
+        // }
+        if (board[i][j] != word[k]) {
+            return false;
+        } else if (k == word.length() - 1) {
+            return true;
+        }
+        visited[i][j] = true;
+        // 四个方向
+        vector<pair<int, int>> dir{make_pair(0, -1), make_pair(0, 1), make_pair(-1, 0), make_pair(1, 0)};
+        bool flag = false;
+        for (const auto& d : dir) {
+            int newi = i + d.first;
+            int newj = j + d.second;
+            if (newi >= 0 && newi < board.size() && newj >= 0 && newj < board[0].size() && !visited[newi][newj]) {
+                flag = haspath(board, word, newi, newj, visited, k+1);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        visited[i][j] = false;
+        return false;
+    }
+
+    bool exist(vector<vector<char>>& board, string word) {
+        int w = board[0].size();
+        int h = board.size();
+        vector<vector<bool>> visited(h, vector<bool>(w, false));
+        for (int i = 0; i < h; ++i) {
+            for (int j = 0; j < w; ++j) {
+                bool flag = haspath(board, word, i, j, visited, 0);
+                if (flag) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+};
+```
+````
