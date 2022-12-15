@@ -238,3 +238,24 @@ public:
     }
 };
 ```
+
+### 2.4.5 位运算
+
+> 编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 '1' 的个数（也被称为 [汉明重量](http://en.wikipedia.org/wiki/Hamming\_weight)).）。
+
+````
+```cpp
+class Solution {
+public:
+    int hammingWeight(uint32_t n) {
+        int cnt = 0;
+        while (n) {
+            // 消除最右边的1，每消除一次，计数加一
+            n = n & (n-1);
+            cnt++;
+        }
+        return cnt;
+    }
+};
+```
+````
