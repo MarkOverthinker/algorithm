@@ -18,6 +18,7 @@
 ## 剑指
 
 * [第二章](jian-zhi/di-er-zhang.md)
+* [第三章](jian-zhi/di-san-zhang.md)
 
 ## 树
 
