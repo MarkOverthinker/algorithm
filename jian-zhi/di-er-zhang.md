@@ -122,7 +122,7 @@ public:
 >
 > 单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。
 
-![](../.gitbook/assets/image.png)
+![](<../.gitbook/assets/image (4).png>)
 
 
 
@@ -181,3 +181,60 @@ public:
 };
 ```
 ````
+
+### 2.4.4 动态规划和贪心
+
+> 题14. 剪绳子
+>
+> 给你一根长度为 `n` 的绳子，请把绳子剪成整数长度的 `m` 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 `k[0],k[1]...k[m-1]` 。请问 `k[0]*k[1]*...*k[m-1]` 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+
+动态规划方式：
+
+![](../.gitbook/assets/image.png)
+
+```
+class Solution {
+public:
+    int cuttingRope(int n) {
+        vector <int> dp(n + 1);
+        for (int i = 2; i <= n; i++) {
+            int curMax = 0;
+            for (int j = 1; j < i; j++) {
+                curMax = max(curMax, max(j * (i - j), j * dp[i - j]));
+            }
+            dp[i] = curMax;
+        }
+        return dp[n];
+    }
+};
+
+```
+
+贪心算法方式：
+
+当n大于等于5的时候剪无脑剪3，等于4就剪成两个2.
+
+证明：
+
+![](../.gitbook/assets/IMG\_20221215\_170156.jpg)
+
+```
+class Solution {
+public:
+    int cuttingRope(int n) {
+        if (n <= 3) {
+            return n - 1;
+        }
+        int quotient = n / 3;
+        int remainder = n % 3;
+        0, 1, 2三种情况
+        if (remainder == 0) {
+            return (int)pow(3, quotient);
+        } else if (remainder == 1) {
+            return (int)pow(3, quotient - 1) * 4;
+        } else {
+            return (int)pow(3, quotient) * 2;
+        }
+    }
+};
+```
