@@ -352,3 +352,45 @@ public:
 };
 ```
 ````
+
+> 题26、树的子结构
+>
+> 输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+>
+> B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+
+````
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    // isSub只用来判断A是否严格的包含B。即以A为根节点的树的上层是否和B完全一样。
+    // 而不是用来判断A是否包含B.
+    // 这两个功能的区分很关键
+    bool isSub(TreeNode *A, TreeNode *B) {
+        if (B == nullptr) {
+            return true;
+        }
+        if (A == nullptr || A->val != B->val) {
+            return false;
+        }
+        return isSub(A->left, B->left) && isSub(A->right, B->right);
+    }
+
+    // 用来判断是否A包含子结构B
+    bool isSubStructure(TreeNode* A, TreeNode* B) {
+        if (B == nullptr || A == nullptr) return false;
+        // 要么A=B，要么的子节点中有A = B
+        return isSub(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B);
+    }
+};
+```
+````
