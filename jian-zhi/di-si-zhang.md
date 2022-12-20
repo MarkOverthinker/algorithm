@@ -164,7 +164,89 @@ public:
 >
 > 之字型打印：奇数层从左到右打印，偶数层从右往左打印。可以：打印奇数层时，把子节点从左向右压入栈，而打印偶数层时，把子节点从右往左压入栈。理解：上一层终点为下一层起点，也就是反转过来。所以用栈。因为上下层不能共用，所以要两个栈。
 
-> 题33.
+> 题33.输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历结果。如果是则返回 `true`，否则返回 `false`。假设输入的数组的任意两个数字都互不相同。
 
+不只是二叉搜索树，任何有关到二叉树的遍历序列问题，都应该考虑到遍历序列中根节点的位置。
+
+本题为二叉搜索树根节点为序列最后一个，则可根数字大小把序列中的数分为前一部分和后一部分，前一部分一定全部小于根节点，后一部分一定全部大于根节点。然后可递归进这两部分继续分。若不能这样分，说明不是二叉搜索树。
+
+````
+```cpp
+class Solution {
+public:
+    bool verifyPostorder(vector<int>& postorder) {
+        int n = postorder.size();
+        if (n == 0) {
+            return true;
+        }
+        vector<int> left, right;
+        int root = postorder[n-1];
+        int i = 0;
+        // 分出左部分
+        while (i < n-1 && postorder[i] <= root) {
+            left.emplace_back(postorder[i]);
+            i++;
+        }
+        // 分出右部分。如果找到比根节点小的则说明不是二叉搜索树后序遍历序列。
+        while (i < n-1) {
+            if (postorder[i] > root) {
+                right.emplace_back(postorder[i]);
+            } else {
+                return false;
+            }
+            ++i;
+        }
+        return verifyPostorder(left) && verifyPostorder(right);
+    }
+};
 ```
+````
+
+> 题34. 剑指 Offer 34. 二叉树中和为某一值的路径
+>
+> 给你二叉树的根节点 `root` 和一个整数目标和 `targetSum` ，找出所有 **从根节点到叶子节点** 路径总和等于给定目标和的路径。
+>
+> **叶子节点** 是指没有子节点的节点。
+
+dfs + 回溯即可。注意注释中的几个细节。
+
+````
+```cpp
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
+class Solution {
+public:
+    // 也可以不传sum。而是改变target并传入
+    void dfs(vector<vector<int>> &ans, vector<int> &tmp, TreeNode* root, int target, int sum) {
+        if (!root) return ;
+        sum += root->val;
+        tmp.emplace_back(root->val);
+        // 注意题目要求是为叶子结点。需要进行判断
+        if (sum == target && root->left == nullptr && root->right == nullptr) {
+            ans.emplace_back(tmp);
+        } else { // 这里有坑，要用else，而不能else if (sum < target)，因为节点中可能有负数，目标值也可能有负数。
+                // 不能想当然认为两者都为正数。
+            dfs(ans, tmp, root->left, target, sum);
+            dfs(ans, tmp, root->right, target, sum);
+        }
+        tmp.pop_back();
+    }
+
+    vector<vector<int>> pathSum(TreeNode* root, int target) {
+        vector<vector<int>> ans;
+        vector<int> tmp;
+        dfs(ans, tmp, root, target, 0);
+        return ans;
+    }
+};
 ```
+````
