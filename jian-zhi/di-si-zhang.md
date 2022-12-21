@@ -380,3 +380,42 @@ private:
 };
 ``
 ````
+
+> 题38. 字符串的排列
+>
+> 输入一个字符串，打印出该字符串中字符的所有排列。
+>
+> 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
+
+````cpp
+```cpp
+class Solution {
+public:
+    void arrange(string s, int idx, vector<string> &ans) {
+        int length = s.size();
+        if (idx == length-1) {
+            ans.emplace_back(s);
+            return;
+        }
+        // 用于记录idx处有哪些字符被换到过
+        set<char> st;
+        // 为idx确定一个字符然后再安排后面的字符串。
+        // 拿一个字符后面的每个字符交换实际上就是把每个可能字符放在idx处
+        for (int i = idx; i < length; ++i) {
+            // 相同则不交换。否则出现重复, 剪枝
+            if (st.find(s[i]) != st.end()) continue;
+            st.insert(s[i]);
+            swap(s[idx], s[i]);
+            arrange(s, idx+1, ans);
+            swap(s[idx], s[i]);
+        }
+    }
+
+    vector<string> permutation(string s) {
+        vector<string> ans;
+        arrange(s, 0, ans);
+        return ans;
+    }
+};
+```
+````
