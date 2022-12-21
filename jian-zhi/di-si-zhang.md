@@ -250,3 +250,133 @@ public:
 };
 ```
 ````
+
+> 题35. 复杂链表的复制
+>
+> [https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/description/](https://leetcode.cn/problems/fu-za-lian-biao-de-fu-zhi-lcof/description/)
+>
+> 请实现 `copyRandomList` 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 `next` 指针指向下一个节点，还有一个 `random` 指针指向链表中的任意节点或者 `null`。
+
+最直接的方法：遍历复制一遍链表，再遍历一遍复制链表的random指向。这种方法每次复制random时需要遍历链表找到对应的节点位置，比较慢。
+
+哈希：复制一遍链表后，把每个节点所在的位置用哈希表记录下来。这样就可以省去查找的时间。
+
+原地构造：把每个新的复制节点放在原节点后面。这样每次复制random的指向时就可以直接找到复制节点的位置。在next和random都复制好后再将新链表从原链表中分离出来。(看书中图示更清楚。P187)
+
+````cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+    
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+*/
+```
+```cpp
+class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        if (head == nullptr) {
+            return nullptr;
+        }
+        // 原地复制+构造哈希
+        for (Node* node = head; node != nullptr; node = node->next->next) {
+            Node* nodeNew = new Node(node->val);
+            nodeNew->next = node->next;
+            node->next = nodeNew;
+        }
+        // 利用原地构造的哈希复制random
+        for (Node* node = head; node != nullptr; node = node->next->next) {
+            Node* nodeNew = node->next;
+            nodeNew->random = (node->random != nullptr) ? node->random->next : nullptr;
+        }
+
+        // 将复制出来的新链表分离出来并还原原来的链表
+        Node* headNew = head->next;
+        for (Node* node = head; node != nullptr; node = node->next) {
+            Node* nodeNew = node->next;
+            node->next = node->next->next;
+            nodeNew->next = (nodeNew->next != nullptr) ? nodeNew->next->next : nullptr;
+        }
+        return headNew;
+    }
+};
+```
+````
+
+> 剑指 Offer 36. 二叉搜索树与双向链表
+>
+> 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。
+
+二叉搜索树的中序遍历结果就是排序好的。那么可以中序遍历二叉搜索树，每次遍历到一个节点，将该节点与上一个节点建立联系即可。
+
+````cpp
+```cpp
+/*
+// Definition for a Node.
+class Node {
+public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node() {}
+
+    Node(int _val) {
+        val = _val;
+        left = NULL;
+        right = NULL;
+    }
+
+    Node(int _val, Node* _left, Node* _right) {
+        val = _val;
+        left = _left;
+        right = _right;
+    }
+};
+*/
+class Solution {
+public:
+    Node* treeToDoublyList(Node* root) {
+        if (!root) return nullptr;
+        dfs(root);
+        // 此时pre 肯定是最后一个节点
+        // 建立循环双向链表，要将首尾节点连起来
+        head->left = pre;
+        pre->right = head;
+        return head;
+    }
+
+private:
+    // head 用来指向双向循环链表的第一个节点。
+    // pre 用来指向中序遍历到的节点的上一个节点
+    Node *pre, *head;
+    void dfs(Node *curr) {
+        if (!curr) return ;
+        // 中序遍历。先dfs进入左节点
+        dfs(curr->left);
+        // 左子树遍历完毕
+        // pre不为空说明前面已遍历其他节点。
+        if (pre) {
+            // 前一个中序遍历到的节点肯定在当前节点前一位.建立pre与curr关系
+            pre->right = curr;
+            curr->left = pre;
+            // pre 为空说明curr是最小的结点
+        } else {
+            head = curr;
+        }
+        // 中序遍历到了根节点。下一步遍历右子树
+        pre = curr;
+        dfs(curr->right);
+    }
+};
+``
+````
