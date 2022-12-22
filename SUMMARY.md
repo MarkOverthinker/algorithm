@@ -17,6 +17,7 @@
 
 ## 剑指
 
+* [困难。待做](jian-zhi/kun-nan-dai-zuo.md)
 * [第二章](jian-zhi/di-er-zhang.md)
 * [第三章](jian-zhi/di-san-zhang.md)
 * [第四章](jian-zhi/di-si-zhang.md)
