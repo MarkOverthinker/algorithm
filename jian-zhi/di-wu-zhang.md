@@ -287,3 +287,30 @@ public:
 };
 ```
 ````
+
+> 剑指 Offer 52. 两个链表的第一个公共节点
+
+双指针交替跑即可。
+
+```
+class Solution {
+public:
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        ListNode *node1 = headA;
+        ListNode *node2 = headB;
+        
+        while (node1 != node2) {
+            node1 = node1 != NULL ? node1->next : headB;
+            node2 = node2 != NULL ? node2->next : headA;
+        }
+        return node1;
+    }
+};
+
+作者：腐烂的橘子
+链接：https://leetcode.cn/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/solutions/93043/shuang-zhi-zhen-fa-lang-man-xiang-yu-by-ml-zimingm/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+或者用两个栈先遍历一遍链表，再倒着找到第一个不同的节点。
