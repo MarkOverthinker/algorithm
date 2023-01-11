@@ -36,3 +36,12 @@
 * [计数排序](jing-dian-pai-xu-suan-fa/ji-shu-pai-xu.md)
 * [桶排序](jing-dian-pai-xu-suan-fa/tong-pai-xu.md)
 * [基数排序](jing-dian-pai-xu-suan-fa/ji-shu-pai-xu-1.md)
+
+## 程序员面试经典（第六版）
+
+* [一次编辑](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/yi-ci-bian-ji.md)
+* [旋转n\*n矩阵](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/xuan-zhuan-nn-ju-zhen.md)
+* [零矩阵](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/ling-ju-zhen.md)
+* [字符串轮转](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/zi-fu-chuan-lun-zhuan.md)
+* [删除中间节点](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/shan-chu-zhong-jian-jie-dian.md)
+* [链表求和](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/lian-biao-qiu-he.md)
