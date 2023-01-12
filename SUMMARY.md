@@ -45,3 +45,4 @@
 * [字符串轮转](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/zi-fu-chuan-lun-zhuan.md)
 * [删除中间节点](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/shan-chu-zhong-jian-jie-dian.md)
 * [链表求和](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/lian-biao-qiu-he.md)
+* [栈排序](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/zhan-pai-xu.md)
