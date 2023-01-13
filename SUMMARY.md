@@ -48,3 +48,4 @@
 * [栈排序](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/zhan-pai-xu.md)
 * [节点间通路](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/jie-dian-jian-tong-lu.md)
 * [面试题 04.03. 特定深度节点链表](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/mian-shi-ti-04.03.-te-ding-shen-du-jie-dian-lian-biao.md)
+* [检查平衡性](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/jian-cha-ping-heng-xing.md)
