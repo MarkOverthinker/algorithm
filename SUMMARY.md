@@ -51,3 +51,4 @@
 * [检查平衡性](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/jian-cha-ping-heng-xing.md)
 * [合法二叉搜索树](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/he-fa-er-cha-sou-suo-shu.md)
 * [后继者](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/hou-ji-zhe.md)
+* [首个公共祖先](cheng-xu-yuan-mian-shi-jing-dian-di-liu-ban/shou-ge-gong-gong-zu-xian.md)
