@@ -4,6 +4,10 @@
 * [跳表的实现](tiao-biao-de-shi-xian.md)
 * [C++随机数生成](c++-sui-ji-shu-sheng-cheng.md)
 
+## 面经补充
+
+* [最长回文子串](mian-jing-bu-chong/zui-chang-hui-wen-zi-chuan.md)
+
 ## 动态规划
 
 * [丑数](dong-tai-gui-hua/chou-shu.md)
