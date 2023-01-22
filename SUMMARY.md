@@ -62,3 +62,4 @@
 
 * [无重复字符的最长子串](li-kou-re-ti-100/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan.md)
 * [2数之和3数之和4数之和](li-kou-re-ti-100/2-shu-zhi-he-3-shu-zhi-he-4-shu-zhi-he.md)
+* [删除有序数组中重复项、移除元素](li-kou-re-ti-100/shan-chu-you-xu-shu-zu-zhong-zhong-fu-xiang-yi-chu-yuan-su.md)
