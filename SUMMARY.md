@@ -67,3 +67,4 @@
 * [下一个排列](li-kou-re-ti-100/xia-yi-ge-pai-lie.md)
 * [搜索旋转排序数组](li-kou-re-ti-100/sou-suo-xuan-zhuan-pai-xu-shu-zu.md)
 * [组合总和](li-kou-re-ti-100/zu-he-zong-he.md)
+* [全排列](li-kou-re-ti-100/quan-pai-lie.md)
