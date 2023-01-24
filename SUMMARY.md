@@ -66,3 +66,4 @@
 * [找出字符串中第一个匹配项的下标](li-kou-re-ti-100/zhao-chu-zi-fu-chuan-zhong-di-yi-ge-pi-pei-xiang-de-xia-biao.md)
 * [下一个排列](li-kou-re-ti-100/xia-yi-ge-pai-lie.md)
 * [搜索旋转排序数组](li-kou-re-ti-100/sou-suo-xuan-zhuan-pai-xu-shu-zu.md)
+* [组合总和](li-kou-re-ti-100/zu-he-zong-he.md)
