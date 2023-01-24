@@ -64,3 +64,5 @@
 * [2数之和3数之和4数之和](li-kou-re-ti-100/2-shu-zhi-he-3-shu-zhi-he-4-shu-zhi-he.md)
 * [删除有序数组中重复项、移除元素](li-kou-re-ti-100/shan-chu-you-xu-shu-zu-zhong-zhong-fu-xiang-yi-chu-yuan-su.md)
 * [找出字符串中第一个匹配项的下标](li-kou-re-ti-100/zhao-chu-zi-fu-chuan-zhong-di-yi-ge-pi-pei-xiang-de-xia-biao.md)
+* [下一个排列](li-kou-re-ti-100/xia-yi-ge-pai-lie.md)
+* [搜索旋转排序数组](li-kou-re-ti-100/sou-suo-xuan-zhuan-pai-xu-shu-zu.md)
