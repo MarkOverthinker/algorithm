@@ -68,3 +68,6 @@
 * [搜索旋转排序数组](li-kou-re-ti-100/sou-suo-xuan-zhuan-pai-xu-shu-zu.md)
 * [组合总和](li-kou-re-ti-100/zu-he-zong-he.md)
 * [全排列](li-kou-re-ti-100/quan-pai-lie.md)
+* [合并区间](li-kou-re-ti-100/he-bing-qu-jian.md)
+* [颜色分类](li-kou-re-ti-100/yan-se-fen-lei.md)
+* [单调栈的hard](li-kou-re-ti-100/dan-tiao-zhan-de-hard.md)
